@@ -1,0 +1,58 @@
+version: '2'
+services:
+  web:
+    build:
+      context: ../
+      dockerfile: ./docker/dev/Dockerfile
+    hostname: "web.ex_debug_toolbar_demo.docker"
+    expose:
+      - 4000
+    depends_on:
+      - postgresql
+    volumes_from:
+      - dotfiles
+    volumes:
+      - '../:/app'
+      - "../../ex_debug_toolbar:/app/deps/ex_debug_toolbar"
+    networks:
+      - backend
+    environment:
+      HISTFILE: /home/dev/history/.zsh_history
+
+  webData:
+    image: busybox
+    volumes:
+    networks:
+      - backend
+
+  dotfiles:
+    image: busybox
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "historyData:/home/dev/history"
+      - "${HOME}/.npm:/app/.npm"
+      - "${HOME}/.config:/home/dev/.config:ro"
+      - "${HOME}/.zshrc:/home/dev/.zshrc:ro"
+    networks:
+      - backend
+
+  postgresql:
+    image: postgres:9.6
+    volumes:
+      - postgresqlData:/var/lib/postgresql/data
+    networks:
+      - backend
+    environment:
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: demo
+      POSTGRES_DB: demo
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgresqlData:
+    external: false
+  historyData:
+    external: false

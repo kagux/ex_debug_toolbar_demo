@@ -1,0 +1,23 @@
+#!/bin/bash
+
+case $1 in
+  init)
+   ./bin/docker-dev init postgresql
+   exit 0
+   ;;
+
+  web_console)
+    ./bin/docker-dev run --name edt_web_console --no-deps --publish 22 web
+    exit 0
+    ;;
+
+  psql)
+    ./bin/docker-dev exec postgresql bash -c "TERM=xterm PGPASSWORD=pass psql -Udemo"
+    exit 0
+    ;;
+
+  server)
+    ./bin/docker-dev run -u $UID -e HOME=/app --name edt_phoenix --no-deps --service-ports web iex -S mix phoenix.server
+    exit 0
+    ;;
+esac

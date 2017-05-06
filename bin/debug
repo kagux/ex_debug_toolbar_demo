@@ -1,0 +1,25 @@
+#!/bin/bash
+COOKIE=123
+SERVER=server@127.0.0.1
+CLIENT=client@127.0.0.1
+NODE_PORT=9001
+DNS_PORT=4369
+
+case $1 in
+  run)
+    shift
+    gosu root service ssh start
+    gosu root epmd -daemon
+    iex --name $SERVER --cookie $COOKIE --erl "-kernel inet_dist_listen_min $NODE_PORT inet_dist_listen_max $NODE_PORT" -S "$@"
+    exit 0
+    ;;
+
+  connect)
+    SSH_PORT=$(docker inspect -f='{{index .NetworkSettings.Ports "22/tcp" 0 "HostPort"}}'  sylar_web_console)
+    sudo killall ssh
+    echo "==== PASSWORD IS 'pass' ===="
+    ssh -p $SSH_PORT -f -N -L $NODE_PORT:localhost:$NODE_PORT -L $DNS_PORT:localhost:$DNS_PORT root@web_console.docker
+    erl -name $CLIENT -setcookie $COOKIE -run observer
+    exit 0
+    ;;
+esac

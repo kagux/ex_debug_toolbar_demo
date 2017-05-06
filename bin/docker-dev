@@ -1,0 +1,103 @@
+#!/bin/bash
+PROJECT=$(basename $PWD)
+
+function install_dev_environment() {
+ # lets install dinghy if not present
+ if ! type dinghy > /dev/null; then
+    brew tap codekitchen/dinghy
+
+    # docker-machine driver for xhyve virtualization
+    # https://github.com/zchee/docker-machine-driver-xhyve#install
+    brew install dinghy docker-machine-driver-xhyve
+    sudo chown root:wheel $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+    sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+
+    # create new VM
+    dinghy create --provider xhyve --memory 8096 --cpus=8 --disk=50000
+    # restart VM as sometimes it can't connect to docker right after creation and
+    # can't download http proxy image.
+    dinghy restart
+ fi
+ # make sure all dinghy services are up
+ dinghy up
+}
+
+function docker_compose() {
+  # export docker daemon environment vars
+  eval $(dinghy env)
+  docker-compose -p $PROJECT -f docker/docker-compose.dev.yml -f docker/docker-compose.dev.override.yml "$@"
+}
+
+function create_ssl_certificate() {
+  local cert_path=$HOME/.dinghy/certs/
+  local cert_filename=$cert_path$1
+  if [ -f ${cert_filename}.key ]; then
+    echo "===> Found certificate for $1"
+    return
+  fi
+  mkdir -p $cert_path
+  echo "===> Generating SSL certificate for $1"
+  openssl req \
+    -x509 \
+    -newkey rsa:2048 \
+    -keyout ${cert_filename}.key \
+    -out ${cert_filename}.crt \
+    -days 365 \
+    -nodes \
+    -subj "/C=US/ST=Oregon/L=Portland/O=$PROJECT Name/OU=Org/CN=${1}"
+  echo "===> Adding self-signed certificate to trusted. May require sudo password"
+  sudo security add-trusted-cert -d \
+    -r trustRoot \
+    -k "/Library/Keychains/System.keychain" \
+    ${cert_filename}.crt
+}
+
+function init_dev_environment() {
+  install_dev_environment
+  create_ssl_certificate web.$PROJECT.docker
+  clean
+  local override_file='docker/docker-compose.dev.override.yml'
+  [ -f ${override_file} ] || $(echo "version: '2'" > ${override_file})
+  docker_compose build --pull
+  docker_compose pull
+  docker_compose up --remove-orphans -d "$@"
+}
+
+function run_service() {
+  # run with same timezone as host
+  docker_compose run --rm -e TZ=${TZ-`readlink /etc/localtime | sed -e 's,/usr/share/zoneinfo/,,'`} "$@"
+}
+
+function clean() {
+ docker_compose down --remove-orphans
+}
+
+case $1 in
+  init)
+    shift
+    init_dev_environment
+    exit 0
+    ;;
+
+  run)
+    shift
+    run_service "$@"
+    exit 0
+    ;;
+
+  clean)
+    shift
+    clean "$@"
+    exit 0
+    ;;
+
+  ps)
+    docker_compose ps
+    exit 0
+    ;;
+
+  *)
+    docker_compose "$@"
+    exit 0
+    ;;
+esac
