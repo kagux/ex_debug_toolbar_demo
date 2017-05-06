@@ -38,5 +38,8 @@ defmodule ExDebugToolbarDemo.Endpoint do
     key: "_ex_debug_toolbar_demo_key",
     signing_salt: "wWi3Rfi0"
 
+  # adds debug toolbar to html responses
+  plug ExDebugToolbar.Plug
+
   plug ExDebugToolbarDemo.Router
 end

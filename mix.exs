@@ -18,8 +18,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {ExDebugToolbarDemo, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+     extra_applications: [:logger]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,6 +35,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:ex_debug_toolbar, path: "/opt/deps/ex_debug_toolbar", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end
