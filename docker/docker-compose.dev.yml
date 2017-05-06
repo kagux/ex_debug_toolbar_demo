@@ -13,7 +13,7 @@ services:
       - dotfiles
     volumes:
       - '../:/app'
-      - "../../ex_debug_toolbar:/opt/deps/ex_debug_toolbar"
+      - "../../ex_debug_toolbar:/app/deps/ex_debug_toolbar"
     networks:
       - backend
     environment:

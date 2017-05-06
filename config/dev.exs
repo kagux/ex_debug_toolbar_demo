@@ -11,6 +11,7 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
+  reloadable_paths: ~w(web lib deps/ex_debug_toolbar),
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../", __DIR__)]]
 

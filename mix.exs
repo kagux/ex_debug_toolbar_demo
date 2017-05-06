@@ -23,7 +23,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web"]
+  defp elixirc_paths(_),     do: ["lib", "web", "deps/ex_debug_toolbar/lib"]
 
   # Specifies your project dependencies.
   #
@@ -35,7 +35,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:ex_debug_toolbar, path: "/opt/deps/ex_debug_toolbar", only: :dev},
+     {:ex_debug_toolbar, path: "deps/ex_debug_toolbar", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end
