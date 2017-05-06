@@ -36,8 +36,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "ex_debug_toolbar_demo_dev",
-  hostname: "localhost",
+  username: "demo",
+  password: "pass",
+  database: "demo",
+  hostname: "postgresql",
   pool_size: 10

@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "ex_debug_toolbar_demo_test",
+  username: "demo",
+  password: "pass",
+  database: "demo_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

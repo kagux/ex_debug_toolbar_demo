@@ -19,12 +19,6 @@ services:
     environment:
       HISTFILE: /home/dev/history/.zsh_history
 
-  webData:
-    image: busybox
-    volumes:
-    networks:
-      - backend
-
   dotfiles:
     image: busybox
     volumes:
