@@ -3,12 +3,10 @@
 ## Install
 
 Install `docker` and `docker-compose`
-Run 
-    sh <(curl -fsSL https://raw.githubusercontent.com/kagux/ex_debug_toolbar_demo/master/install.sh)
-  to download the demo app, with the toolbar inside prepared for development 
-Run 
-    bin/docker-launcher server
-  to start the server
+
+Run `sh <(curl -fsSL https://raw.githubusercontent.com/kagux/ex_debug_toolbar_demo/master/install.sh)` to download the demo app, with the toolbar inside prepared for development 
+
+Run `bin/docker-launcher server` to start the server
 
 ## Development
 The following tools are available
