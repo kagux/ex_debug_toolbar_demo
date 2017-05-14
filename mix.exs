@@ -35,7 +35,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:ex_debug_toolbar, path: "deps/ex_debug_toolbar", only: :dev},
+     {:ex_debug_toolbar, path: "ex_debug_toolbar", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end

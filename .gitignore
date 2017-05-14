@@ -24,3 +24,4 @@ erl_crash.dump
 /config/prod.secret.exs
 /.mix
 /docker/docker-compose.dev.override.yml
+/ex_debug_toolbar

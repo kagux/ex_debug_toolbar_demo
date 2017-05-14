@@ -20,6 +20,7 @@ defmodule ExDebugToolbarDemo.Endpoint do
   end
 
   plug Plug.RequestId
+  use ExDebugToolbar.Phoenix
   plug Plug.Logger
 
   plug Plug.Parsers,
@@ -37,9 +38,6 @@ defmodule ExDebugToolbarDemo.Endpoint do
     store: :cookie,
     key: "_ex_debug_toolbar_demo_key",
     signing_salt: "wWi3Rfi0"
-
-  # adds debug toolbar to html responses
-  plug ExDebugToolbar.Plug
 
   plug ExDebugToolbarDemo.Router
 end
