@@ -13,7 +13,8 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   check_origin: false,
   reloadable_paths: ~w(web lib deps/ex_debug_toolbar),
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../", __DIR__)]]
+                    cd: Path.expand("../", __DIR__)]],
+  instrumenters: [ExDebugToolbar.Phoenix.Instrumenter]
 
 
 # Watch static and templates for browser reloading.
