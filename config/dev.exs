@@ -16,6 +16,10 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
                     cd: Path.expand("../", __DIR__)]]
 
 
+# Instrumenters
+config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
+  instrumenters: [ExDebugToolbar.Collector.InstrumentationCollector]
+
 # Watch static and templates for browser reloading.
 config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   live_reload: [
