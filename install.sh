@@ -18,6 +18,6 @@ bin/docker-dev init
 bin/docker-dev run web mix local.hex --force
 bin/docker-dev run web mix local.rebar --force
 bin/docker-dev run web mix deps.get
-bin/docker-dev run web npm install
+bin/docker-dev run web yarn install
 bin/docker-dev run web sh -c "cd ex_debug_toolbar && mix deps.get"
 bin/docker-dev run web sh -c "cd ex_debug_toolbar && ../node_modules/brunch/bin/brunch build"
