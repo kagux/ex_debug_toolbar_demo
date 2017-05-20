@@ -17,6 +17,7 @@ defmodule ExDebugToolbarDemo.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/ecto", PageController, :ecto
   end
 
   forward "/__ex_debug_toolbar__", ExDebugToolbar.Endpoint
