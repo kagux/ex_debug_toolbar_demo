@@ -25,8 +25,8 @@ services:
       - "/etc/localtime:/etc/localtime"
       - "historyData:/home/dev/history"
       - "${HOME}/.npm:/app/.npm"
-      - "${HOME}/.config:/home/dev/.config:ro"
-      - "${HOME}/.zshrc:/home/dev/.zshrc:ro"
+      - "${HOME}/.config:/home/dev/.config"
+      - "${HOME}/.zshrc:/home/dev/.zshrc"
     networks:
       - backend
 
