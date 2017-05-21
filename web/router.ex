@@ -18,6 +18,4 @@ defmodule ExDebugToolbarDemo.Router do
 
     get "/", PageController, :index
   end
-
-  forward "/__ex_debug_toolbar__", ExDebugToolbar.Endpoint
 end
