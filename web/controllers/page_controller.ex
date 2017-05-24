@@ -12,4 +12,8 @@ defmodule ExDebugToolbarDemo.PageController do
     |> assign(:page_header, "Ecto")
     |> render("ecto.html")
   end
+
+  def partials(conn, _params) do
+    render conn, "partials.html", page_header: "Partials"
+  end
 end
