@@ -34,8 +34,8 @@ defmodule ExDebugToolbarDemo.Mixfile do
      {:phoenix_ecto, "~> 3.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
+     {:ex_debug_toolbar, path: "ex_debug_toolbar"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:ex_debug_toolbar, path: "ex_debug_toolbar", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"}]
   end

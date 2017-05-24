@@ -1,5 +1,6 @@
 defmodule ExDebugToolbarDemo.Endpoint do
   use Phoenix.Endpoint, otp_app: :ex_debug_toolbar_demo
+  use ExDebugToolbar.Phoenix
 
   socket "/socket", ExDebugToolbarDemo.UserSocket
 
@@ -20,7 +21,6 @@ defmodule ExDebugToolbarDemo.Endpoint do
   end
 
   plug Plug.RequestId
-  use ExDebugToolbar.Phoenix
   plug Plug.Logger
 
   plug Plug.Parsers,

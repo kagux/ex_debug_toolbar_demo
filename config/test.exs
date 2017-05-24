@@ -14,6 +14,6 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "demo",
   password: "pass",
-  database: "demo_test",
-  hostname: "localhost",
+  database: "demo",
+  hostname: "postgresql",
   pool: Ecto.Adapters.SQL.Sandbox
