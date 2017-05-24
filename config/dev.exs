@@ -15,10 +15,6 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../", __DIR__)]]
 
-# Instrumenters
-config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
-  instrumenters: [ExDebugToolbar.Collector.InstrumentationCollector]
-
 # Watch static and templates for browser reloading.
 config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   live_reload: [
@@ -44,5 +40,16 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   password: "pass",
   database: "demo",
   hostname: "postgresql",
-  pool_size: 10,
+  pool_size: 10
+  
+# ExDebugToolbar config
+# Instrumenters
+config :ex_debug_toolbar,
+  enable: true
+
+config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
+  instrumenters: [ExDebugToolbar.Collector.InstrumentationCollector]
+
+config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   loggers: [ExDebugToolbar.Collector.EctoCollector, Ecto.LogEntry]
+
