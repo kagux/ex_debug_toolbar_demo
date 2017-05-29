@@ -42,6 +42,9 @@
               <li>
                 <%= link "Ecto", to: page_path(@conn, :ecto) %>
               </li>
+              <li>
+                <%= link "Partials", to: page_path(@conn, :partials) %>
+              </li>
             </ul>
           </div>
 
