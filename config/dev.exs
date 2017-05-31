@@ -11,7 +11,7 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  reloadable_paths: ~w(web lib deps/ex_debug_toolbar),
+  reloadable_paths: ~w(web lib ex_debug_toolbar/web ex_debug_toolbar/lib),
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../", __DIR__)]]
 
@@ -22,7 +22,9 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
+      ~r{web/templates/.*(eex)$},
+      ~r{ex_debug_toolbar/web/views/.*(ex)$},
+      ~r{ex_debug_toolbar/web/templates/.*(eex)$},
     ]
   ]
 
