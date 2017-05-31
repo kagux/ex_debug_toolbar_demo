@@ -61,6 +61,9 @@ RUN set -x \
 	&& chmod 6755 /usr/local/bin/gosu \
 	&& gosu nobody true
 
+# Install sass
+RUN apt-get install -y ruby && gem install sass
+
 USER dev
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
