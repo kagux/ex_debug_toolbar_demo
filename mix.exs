@@ -23,7 +23,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web", "ex_debug_toolbar/lib"]
+  defp elixirc_paths(_),     do: ["lib", "web", "ex_debug_toolbar/lib", "ex_debug_toolbar/web"]
 
   # Specifies your project dependencies.
   #
