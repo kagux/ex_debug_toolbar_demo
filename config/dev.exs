@@ -43,7 +43,7 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   database: "demo",
   hostname: "postgresql",
   pool_size: 10
-  
+
 # ExDebugToolbar config
 # Instrumenters
 config :ex_debug_toolbar,
@@ -55,3 +55,6 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
 config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   loggers: [ExDebugToolbar.Collector.EctoCollector, Ecto.LogEntry]
 
+config :phoenix, :template_engines,
+  eex: ExDebugToolbar.Template.EExEngine,
+  exs: ExDebugToolbar.Template.ExsEngine

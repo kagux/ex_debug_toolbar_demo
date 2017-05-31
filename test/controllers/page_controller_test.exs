@@ -10,4 +10,9 @@ defmodule ExDebugToolbarDemo.PageControllerTest do
     conn = get conn, "/ecto"
     assert conn.status == 200
   end
+
+  test "GET /partials", %{conn: conn} do
+    conn = get conn, "/ecto"
+    assert conn.status == 200
+  end
 end

@@ -1,0 +1,4 @@
+<div>Partials:</div>
+<ul>
+  <%= render "partials/depth_1.html" %>
+</ul>
