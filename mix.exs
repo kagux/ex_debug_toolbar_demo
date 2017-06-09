@@ -32,6 +32,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
     [{:phoenix, "~> 1.2.1"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
+     {:ecto, github: "elixir-ecto/ecto", branch: "master", override: true},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:ex_debug_toolbar, path: "ex_debug_toolbar"},

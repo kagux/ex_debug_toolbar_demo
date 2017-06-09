@@ -18,6 +18,7 @@ defmodule ExDebugToolbarDemo.Router do
 
     get "/", PageController, :index
     get "/ecto", PageController, :ecto
+    get "/ecto_with_preload", PageController, :ecto_with_preload
     get "/partials", PageController, :partials
   end
 end

@@ -1,11 +1,5 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     ExDebugToolbarDemo.Repo.insert!(%ExDebugToolbarDemo.SomeModel{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias ExDebugToolbarDemo.{User, Article, Video, Repo}
+
+user = Repo.insert! %User{name: "Morty"}
+Repo.insert! %Video{url: "https://www.youtube.com/watch?v=lZi5FaGLhCA", user: user}
+Repo.insert! %Article{title: "7 Morty Meltdowns", user: user}
