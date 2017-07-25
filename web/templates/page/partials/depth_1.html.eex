@@ -1,2 +1,3 @@
 <li>Depth 1</li>
 <%= render "partials/depth_2.html" %>
+<%= render "partials/depth_2.html" %>

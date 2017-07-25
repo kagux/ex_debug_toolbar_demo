@@ -11,11 +11,6 @@ defmodule ExDebugToolbarDemo.PageControllerTest do
     assert conn.status == 200
   end
 
-  test "GET /ecto_with_preload", %{conn: conn} do
-    conn = get conn, "/ecto_with_preload"
-    assert conn.status == 200
-  end
-
   test "GET /partials", %{conn: conn} do
     conn = get conn, "/ecto"
     assert conn.status == 200

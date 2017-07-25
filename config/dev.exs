@@ -49,6 +49,9 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
 config :ex_debug_toolbar,
   enable: true
 
+config :ex_debug_toolbar, ExDebugToolbar.Endpoint,
+  url: [path: "/__ex_debug_toolbar__"]
+
 config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
   instrumenters: [ExDebugToolbar.Collector.InstrumentationCollector]
 

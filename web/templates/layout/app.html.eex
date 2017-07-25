@@ -43,10 +43,10 @@
                 <%= link "Ecto", to: page_path(@conn, :ecto) %>
               </li>
               <li>
-                <%= link "Ecto with Preload", to: page_path(@conn, :ecto_with_preload) %>
+                <%= link "Partials", to: page_path(@conn, :partials) %>
               </li>
               <li>
-                <%= link "Partials", to: page_path(@conn, :partials) %>
+                <%= link "Pry", to: page_path(@conn, :pry) %>
               </li>
             </ul>
           </div>
