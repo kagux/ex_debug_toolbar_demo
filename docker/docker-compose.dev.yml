@@ -12,7 +12,7 @@ services:
     volumes_from:
       - dotfiles
     volumes:
-      - '../:/app'
+      - '../:$PWD'
     networks:
       - backend
     environment:
@@ -24,7 +24,7 @@ services:
     volumes:
       - "/etc/localtime:/etc/localtime"
       - "historyData:/home/dev/history"
-      - "${HOME}/.npm:/app/.npm"
+      - "${HOME}/.npm:/home/dev/.npm"
       - "${HOME}/.config:/home/dev/.config"
       - "${HOME}/.zshrc:/home/dev/.zshrc"
     networks:

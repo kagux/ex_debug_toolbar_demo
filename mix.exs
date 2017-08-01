@@ -38,6 +38,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
      {:ex_debug_toolbar, path: "ex_debug_toolbar"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
+     {:fs, "~> 2.12", override: true},
      {:cowboy, "~> 1.0"}]
   end
 
