@@ -68,8 +68,6 @@ RUN git clone https://github.com/junegunn/fzf.git /home/dev/.fzf \
     && (cd /home/dev/.fzf && git checkout ${FZF_VERSION}) \
     && (yes | /home/dev/.fzf/install)
 
-WORKDIR /app
-
 RUN mix local.hex --force
 RUN mix local.rebar --force
 
