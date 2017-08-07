@@ -48,6 +48,9 @@
               <li>
                 <%= link "Pry", to: page_path(@conn, :pry) %>
               </li>
+              <li>
+                <%= link "Javascript", to: page_path(@conn, :javascript) %>
+              </li>
             </ul>
           </div>
 

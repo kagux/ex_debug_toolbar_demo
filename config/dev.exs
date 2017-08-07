@@ -47,7 +47,8 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
 # ExDebugToolbar config
 # Instrumenters
 config :ex_debug_toolbar,
-  enable: true
+enable: true,
+remove_glob_params: false
 
 config :ex_debug_toolbar, ExDebugToolbar.Endpoint,
   url: [path: "/__ex_debug_toolbar__"]

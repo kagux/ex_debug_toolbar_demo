@@ -4,7 +4,8 @@ defmodule ExDebugToolbarDemo.PageController do
   alias ExDebugToolbarDemo.User
   require ExDebugToolbar
 
-  def index(conn, _params) do
+  def index(conn = %{assigns: %{}}, params) do
+    IO.inspect params
     render conn, "index.html", page_header: "Simple"
   end
 
@@ -22,5 +23,9 @@ defmodule ExDebugToolbarDemo.PageController do
   def pry(conn, _params) do
     ExDebugToolbar.pry
     render conn, "pry.html", page_header: "Pry"
+  end
+
+  def javascript(conn, _params) do
+    render conn, "javascript.html", page_header: "Javascript"
   end
 end
