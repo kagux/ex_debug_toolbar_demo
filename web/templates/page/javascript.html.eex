@@ -1,0 +1,3 @@
+<span id="test"> It does not work! </span>
+<br>
+Also, there should be no red squared on toolbar, that's css issue.
