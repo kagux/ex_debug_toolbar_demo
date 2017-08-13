@@ -12,7 +12,23 @@ defmodule ExDebugToolbarDemo.PageControllerTest do
   end
 
   test "GET /partials", %{conn: conn} do
-    conn = get conn, "/ecto"
+    conn = get conn, "/partials"
     assert conn.status == 200
+  end
+
+  test "GET /pry", %{conn: conn} do
+    conn = get conn, "/pry"
+    assert conn.status == 200
+  end
+
+  test "GET /js", %{conn: conn} do
+    conn = get conn, "/js"
+    assert conn.status == 200
+  end
+
+  test "GET /error", %{conn: conn} do
+    assert_error_sent 500, fn ->
+      get conn, "/error"
+    end
   end
 end

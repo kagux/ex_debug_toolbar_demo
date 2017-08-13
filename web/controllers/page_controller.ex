@@ -28,4 +28,8 @@ defmodule ExDebugToolbarDemo.PageController do
   def javascript(conn, _params) do
     render conn, "javascript.html", page_header: "Javascript"
   end
+
+  def error(conn, _params) do
+    raise RuntimeError, "some runtime error"
+  end
 end

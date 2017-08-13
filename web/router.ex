@@ -21,5 +21,6 @@ defmodule ExDebugToolbarDemo.Router do
     get "/partials", PageController, :partials
     get "/pry", PageController, :pry
     get "/js", PageController, :javascript
+    get "/error", PageController, :error
   end
 end

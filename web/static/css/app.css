@@ -1,3 +1,17 @@
 .navbar.navbar-default.navbar-fixed-bottom ::before {
   background-color: red;
 }
+
+span.toolbar-item {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+table tr.alt, table tr.even, table tr:nth-of-type(even) {
+  background: #f9f9f9;
+}
+
+.row {
+  max-width: 62.5em;
+  margin: 0 auto;
+}
