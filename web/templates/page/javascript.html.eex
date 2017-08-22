@@ -1,3 +1,4 @@
 <span id="test"> It does not work! </span>
+<%= link "Confirm dialog", to: page_path(@conn, :javascript), data: [confirm: "are you sure?", method: "get"] %>
 <br>
 Also, there should be no red squared on toolbar, that's css issue.
