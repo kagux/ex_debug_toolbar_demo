@@ -10,7 +10,7 @@ defmodule ExDebugToolbarDemo.PageController do
   end
 
   def ecto(conn, _params) do
-    User |> preload([:videos, :articles]) |> where(id: 1) |> Repo.all
+    User |> preload([:videos, :articles, images: :image_source]) |> where(id: 1) |> Repo.all
     conn
     |> assign(:page_header, "Ecto")
     |> render("ecto.html")
@@ -29,7 +29,7 @@ defmodule ExDebugToolbarDemo.PageController do
     render conn, "javascript.html", page_header: "Javascript"
   end
 
-  def error(conn, _params) do
+  def error(_conn, _params) do
     raise RuntimeError, "some runtime error"
   end
 end
