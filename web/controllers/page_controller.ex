@@ -32,4 +32,10 @@ defmodule ExDebugToolbarDemo.PageController do
   def error(_conn, _params) do
     raise RuntimeError, "some runtime error"
   end
+
+  def slim(conn, _params) do
+    conn
+    |> assign(:page_header, "Slim template")
+    |> render("slim.html")
+  end
 end

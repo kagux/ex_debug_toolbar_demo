@@ -52,6 +52,9 @@
                 <%= link "Javascript", to: page_path(@conn, :javascript) %>
               </li>
               <li>
+                <%= link "Slim template", to: page_path(@conn, :slim) %>
+              </li>
+              <li>
                 <%= link "Error", to: page_path(@conn, :error) %>
               </li>
             </ul>

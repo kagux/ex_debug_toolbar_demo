@@ -22,7 +22,7 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$},
+      ~r{web/templates/.*(eex|slim|slime)$},
       ~r{ex_debug_toolbar/web/views/.*(ex)$},
       ~r{ex_debug_toolbar/web/templates/.*(eex)$},
     ]
@@ -48,7 +48,8 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
 # Instrumenters
 config :ex_debug_toolbar,
   enable: true,
-  remove_glob_params: false
+  remove_glob_params: false,
+  debug: true
 
 config :ex_debug_toolbar, ExDebugToolbar.Endpoint,
   url: [path: "/__ex_debug_toolbar__"]
@@ -61,4 +62,6 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
 
 config :phoenix, :template_engines,
   eex: ExDebugToolbar.Template.EExEngine,
-  exs: ExDebugToolbar.Template.ExsEngine
+  exs: ExDebugToolbar.Template.ExsEngine,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine

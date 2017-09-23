@@ -26,6 +26,11 @@ defmodule ExDebugToolbarDemo.PageControllerTest do
     assert conn.status == 200
   end
 
+  test "GET /slim", %{conn: conn} do
+    conn = get conn, "/slim"
+    assert conn.status == 200
+  end
+
   test "GET /error", %{conn: conn} do
     assert_error_sent 500, fn ->
       get conn, "/error"
