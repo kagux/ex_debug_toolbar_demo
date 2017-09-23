@@ -63,5 +63,5 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
 config :phoenix, :template_engines,
   eex: ExDebugToolbar.Template.EExEngine,
   exs: ExDebugToolbar.Template.ExsEngine,
-  slim: PhoenixSlime.Engine,
-  slime: PhoenixSlime.Engine
+  slim: ExDebugToolbar.Template.SlimEngine,
+  slime: ExDebugToolbar.Template.SlimEngine
