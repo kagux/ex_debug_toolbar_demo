@@ -11,6 +11,6 @@ env:
   - DB_HOST=localhost MIX_ENV=test
 
 before_script:
-  - psql -c "CREATE DATABASE demo;" -U travis
-  - psql -c "CREATE USER demo WITH PASSWORD 'pass';" -U travis
+  - psql -c "CREATE DATABASE demo;" -U postgres
+  - psql -c "CREATE USER demo WITH PASSWORD 'pass';" -U postgres
   - mix ecto.migrate
