@@ -36,7 +36,7 @@ defmodule ExDebugToolbarDemo.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_slime, "~> 0.8.0"},
-     {:ex_debug_toolbar, path: "ex_debug_toolbar"},
+     {:ex_debug_toolbar, toolbar_package()},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:fs, "~> 2.12", override: true},
@@ -53,5 +53,12 @@ defmodule ExDebugToolbarDemo.Mixfile do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
      "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+  end
+
+  defp toolbar_package do
+    case Mix.env do
+      :dev -> [path: "ex_debug_toolbar"]
+      _ -> ">= 0.0.0"
+    end
   end
 end
