@@ -17,7 +17,7 @@ case $1 in
     ;;
 
   server)
-    ./bin/docker-dev run --name edt_phoenix --no-deps --service-ports web iex -S mix phoenix.server
+    ./bin/docker-dev run --name edt_phoenix --no-deps --service-ports web mix phoenix.server
     exit 0
     ;;
 esac

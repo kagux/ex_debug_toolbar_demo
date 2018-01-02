@@ -21,6 +21,7 @@ defmodule ExDebugToolbarDemo.PageController do
   end
 
   def pry(conn, _params) do
+    users = for _ <- 1..1000, do: %User{}
     ExDebugToolbar.pry
     render conn, "pry.html", page_header: "Pry"
   end

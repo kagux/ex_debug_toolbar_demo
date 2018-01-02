@@ -44,6 +44,14 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   hostname: "postgresql",
   pool_size: 10
 
+config :ex_debug_toolbar, ExDebugToolbar.Endpoint,
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  reloadable_paths: ~w(web lib ex_debug_toolbar/web ex_debug_toolbar/lib),
+  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
+                    cd: Path.expand("../", __DIR__)]]
+
 # ExDebugToolbar config
 # Instrumenters
 config :ex_debug_toolbar,
