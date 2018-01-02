@@ -12,5 +12,4 @@ env:
 
 before_script:
   - psql -c "CREATE USER demo WITH PASSWORD 'pass';" -U postgres
-  - psql -c "CREATE DATABASE demo;" -U demo
   - mix ecto.migrate
