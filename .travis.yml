@@ -1,11 +1,17 @@
-sudo: required
-language: generic
+language: elixir
+elixir:
+  - 1.5.3
+otp_release:
+  - 20.0
 
 services:
-  - docker
+  - postgresql
 
-before_install:
-  - docker build -f docker/test/Dockerfile -t ex_debug_toolbar_demo .
+env:
+  - DB_HOST=localhost
+  - MIX_ENV=test
 
-script:
-  - docker run ex_debug_toolbar_demo mix test
+before_script:
+  - psql -c "CREATE DATABASE demo;" -U postgres
+  - psql -c "CREATE USER demo WITH PASSWORD 'pass';" -U postgres
+  - mix ecto.migrate

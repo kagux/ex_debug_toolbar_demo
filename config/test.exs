@@ -15,5 +15,5 @@ config :ex_debug_toolbar_demo, ExDebugToolbarDemo.Repo,
   username: "demo",
   password: "pass",
   database: "demo",
-  hostname: "postgresql",
+  hostname: System.get_env("DB_HOST") || "postgresql",
   pool: Ecto.Adapters.SQL.Sandbox
