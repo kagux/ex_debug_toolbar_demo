@@ -55,6 +55,9 @@
                 <%= link "Slim template", to: page_path(@conn, :slim) %>
               </li>
               <li>
+                <%= link "JSON", to: page_path(@conn, :json) %>
+              </li>
+              <li>
                 <%= link "Error", to: page_path(@conn, :error) %>
               </li>
             </ul>

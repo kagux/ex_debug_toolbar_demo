@@ -21,9 +21,13 @@ defmodule ExDebugToolbarDemo.PageController do
   end
 
   def pry(conn, _params) do
-    users = for _ <- 1..1000, do: %User{}
+    _users = for _ <- 1..1000, do: %User{}
     ExDebugToolbar.pry
     render conn, "pry.html", page_header: "Pry"
+  end
+
+  def json(conn, _params) do
+    render conn, "json.json"
   end
 
   def javascript(conn, _params) do

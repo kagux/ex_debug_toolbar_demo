@@ -1,2 +1,2 @@
-<% string = "Hello" %>
+<% _string = "Hello" %>
 <%= require ExDebugToolbar; ExDebugToolbar.pry %>
