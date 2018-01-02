@@ -8,8 +8,7 @@ services:
   - postgresql
 
 env:
-  - DB_HOST=localhost
-  - MIX_ENV=test
+  - DB_HOST=localhost MIX_ENV=test
 
 before_script:
   - psql -c "CREATE DATABASE demo;" -U postgres
