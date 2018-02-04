@@ -1,10 +1,9 @@
 version: '2'
 services:
   web:
-    # build:
-    #   context: ../
-    #   dockerfile: ./docker/dev/Dockerfile
-    image: kagux/ex_debug_toolbar_demo
+    build:
+      context: ../
+      dockerfile: ./docker/dev/Dockerfile
     hostname: "web.ex_debug_toolbar_demo.docker"
     expose:
       - 4000
@@ -27,7 +26,6 @@ services:
       - "/etc/localtime:/etc/localtime"
       - "historyData:/home/dev/history"
       - "${HOME}/.npm:/home/dev/.npm"
-      - "${HOME}/.config:/home/dev/.config"
       - "${HOME}/.zshrc:/home/dev/.zshrc"
     networks:
       - backend
