@@ -9,26 +9,18 @@ services:
       - 4000
     depends_on:
       - postgresql
-    volumes_from:
-      - dotfiles
     volumes:
       - "../:${PWD}"
-    networks:
-      - backend
-    working_dir: ${PWD}
-    environment:
-      HISTFILE: /home/dev/history/.zsh_history
-      VIRTUAL_HOST: "web.ex_debug_toolbar_demo.docker"
-
-  dotfiles:
-    image: busybox
-    volumes:
       - "/etc/localtime:/etc/localtime"
       - "historyData:/home/dev/history"
       - "${HOME}/.npm:/home/dev/.npm"
       - "${HOME}/.zshrc:/home/dev/.zshrc"
     networks:
       - backend
+    working_dir: ${PWD}
+    environment:
+      HISTFILE: /home/dev/history/.zsh_history
+      VIRTUAL_HOST: "web.ex_debug_toolbar_demo.docker"
 
   postgresql:
     image: postgres:9.6
