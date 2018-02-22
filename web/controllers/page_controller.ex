@@ -10,6 +10,9 @@ defmodule ExDebugToolbarDemo.PageController do
 
   def ecto(conn, _params) do
     User |> preload([:videos, :articles, images: :image_source]) |> where(id: 1) |> Repo.all
+    ExDebugToolbarDemo.Repo.transaction(fn ->
+      User |> Repo.stream |> Enum.to_list
+    end)
     conn
     |> assign(:page_header, "Ecto")
     |> render("ecto.html")
