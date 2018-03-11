@@ -45,4 +45,12 @@ defmodule ExDebugToolbarDemo.PageController do
     |> assign(:page_header, "Slim template")
     |> render("slim.html")
   end
+
+  def params(conn, %{"route_param" => route_param}) do
+    conn
+    |> assign(:page_header, "Params")
+    |> assign(:route_param, route_param)
+    |> assign(:query_params, conn.query_params)
+    |> render("params.html")
+  end
 end

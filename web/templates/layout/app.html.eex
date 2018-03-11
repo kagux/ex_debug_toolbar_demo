@@ -60,6 +60,9 @@
               <li>
                 <%= link "Error", to: page_path(@conn, :error) %>
               </li>
+              <li>
+                <%= link "Params", to: page_path(@conn, :params, "foo", query_param: "bar") %>
+              </li>
             </ul>
           </div>
 

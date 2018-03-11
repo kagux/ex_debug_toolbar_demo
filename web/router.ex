@@ -24,5 +24,6 @@ defmodule ExDebugToolbarDemo.Router do
     get "/error", PageController, :error
     get "/slim", PageController, :slim
     get "/json", PageController, :json
+    get "/params/:route_param", PageController, :params
   end
 end
