@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <title>Hello ExDebugToolbarDemo!</title>
+    <%= render_existing @view_module, "#{Phoenix.Controller.action_name(@conn)}/_header.html" |> IO.inspect, assigns %>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -56,6 +57,9 @@
               </li>
               <li>
                 <%= link "JSON", to: page_path(@conn, :json) %>
+              </li>
+              <li>
+                <%= link "Bootstrap 4", to: page_path(@conn, :bootstrap_4) %>
               </li>
               <li>
                 <%= link "Error", to: page_path(@conn, :error) %>

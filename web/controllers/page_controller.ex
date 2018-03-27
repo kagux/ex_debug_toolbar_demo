@@ -46,6 +46,12 @@ defmodule ExDebugToolbarDemo.PageController do
     |> render("slim.html")
   end
 
+  def bootstrap_4(conn, _params) do
+    conn
+    |> assign(:page_header, "Bootstrap 4")
+    |> render("bootstrap_4.html")
+  end
+
   def params(conn, %{"route_param" => route_param}) do
     conn
     |> assign(:page_header, "Params")

@@ -36,6 +36,11 @@ defmodule ExDebugToolbarDemo.PageControllerTest do
     assert conn.status == 200
   end
 
+  test "GET /bootstrap_4", %{conn: conn} do
+    conn = get conn, "/bootstrap_4"
+    assert conn.status == 200
+  end
+
   test "GET /params", %{conn: conn} do
     conn = get conn, "/params/v1?foo=bar"
     assert conn.status == 200
